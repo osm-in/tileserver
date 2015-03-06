@@ -25,9 +25,12 @@ osm2pgsql -cGs -d india_boundaries tileserver/india-claim-boundaries.osm.xml
 The boundaries were generated using [this overpass query](http://overpass-turbo.eu/s/82S)
 
 ### Styling
-Styling is based on a fork of [openstreetmap-carto](https://github.com/planemad/openstreetmap-carto). Read the install instructions to make sure all the shapefile dependencies are met.
+Styling is based on a fork of [openstreetmap-carto](https://github.com/planemad/openstreetmap-carto). Read the [install instructions](https://github.com/planemad/openstreetmap-carto/blob/master/INSTALL.md) for how to load the osm data, download the required shapefiles and fonts.
 
-Once setup, you can use [Tilemill]() to test the style and export the mapnik.xml file. Or you can use the one in ```/tileserver/openstreetmap-carto.xml```
+Once setup, you can load the project into [Tilemill](https://www.mapbox.com/tilemill/) to test the style and export the mapnik.xml stylesheet for use with the mapnik renderer.
+
+#### Using the precompiled xml stylesheet
+A pre compiled mapnik stylesheet can be found at  ```/tileserver/openstreetmap-carto.xml```. Using the stylesheet will require correcting the paths that reference the downloaded .shp shapefiles.
 
 ## Contact
 * [osm:talk-in list](https://lists.openstreetmap.org/listinfo/talk-in)
