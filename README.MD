@@ -1,5 +1,4 @@
-# OpenStreetMap India
-The OSM India community repository.
+The openstreetmap India community repository.
 
 ## Website
 Currently running at http://14.139.123.10:8080/osm/slippymap.html
@@ -7,10 +6,13 @@ Currently running at http://14.139.123.10:8080/osm/slippymap.html
 ## Tile Server
 Hosted by HBCSE-TIFR
 
-### Fixing the boundaries
+### Styling
+Styling is based on a fork of [openstreetmap-carto](https://github.com/planemad/openstreetmap-carto)
+
+#### Fixing the boundaries
 The Indian boundaries rendered on openstreetmap need to be modified to comply with Indian law. This can be fixed by adding the legal boundary shapes to the postgres database and making some changes to the mapnik xml to render it as per requirements
 
-#### Downloading the Extended Boundaries
+##### Downloading the Extended Boundaries
 There is a relation created in osm of the boundary lines that match the legal requirement. It can be  downloaded using the following overpass api query:
 ```
 [out:xml][timeout:25];
@@ -30,7 +32,7 @@ out meta qt;
 
 Save the data to the disk as india-claim-boundaries.osm.xml
 
-#### Load the boundaries into a new database
+##### Load the boundaries into a new database
 Use ```psql``` to setup a new postgis database for holding the new boundaries
 
 ```
