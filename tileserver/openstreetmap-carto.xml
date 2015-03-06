@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">2</Parameter>
   <Parameter name="id"><![CDATA[openstreetmap-carto]]></Parameter>
-  <Parameter name="_updated">1425657318000</Parameter>
+  <Parameter name="_updated">1425662377000</Parameter>
   <Parameter name="name"><![CDATA[OpenStreetMap Carto]]></Parameter>
   <Parameter name="description"><![CDATA[A faithful reimplementation of the standard OpenStreetMap style]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -14219,6 +14219,96 @@ AS citywalls]]></Parameter>
     </Datasource>
   </Layer>
 
+<Style name="india-admin-claim" filter-mode="first" comp-op="darken" opacity="0.4">
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <Filter>([admin_level] = '3')</Filter>
+    <LineSymbolizer stroke-width="5" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 2" clip="false" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([admin_level] = '3')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="2" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([admin_level] = '3')</Filter>
+    <LineSymbolizer stroke="#ffffff" stroke-width="0.6" />
+    <LineSymbolizer stroke="#ac46ac" stroke-width="0.6" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([admin_level] = '3')</Filter>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750000</MaxScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="6" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="6" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>750000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke-width="2" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="2" stroke="#ac46ac" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+    <LineSymbolizer stroke="#ffffff" stroke-width="0.6" />
+    <LineSymbolizer stroke="#ac46ac" stroke-width="0.6" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([admin_level] = '2')</Filter>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <Filter>([admin_level] = '4')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="3" stroke="#ac46ac" stroke-dasharray="4, 3" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>6500000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <Filter>([admin_level] = '4')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="1" stroke="#ac46ac" stroke-dasharray="4, 3" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>6500000</MinScaleDenominator>
+    <Filter>([admin_level] = '4')</Filter>
+    <LineSymbolizer stroke="#ffffff" stroke-width="0.6" />
+    <LineSymbolizer stroke="#ac46ac" stroke-width="0.6" stroke-dasharray="4, 3" clip="false" />
+  </Rule>
+  <Rule>
+    <MinScaleDenominator>50000000</MinScaleDenominator>
+    <Filter>([admin_level] = '4')</Filter>
+  </Rule>
+</Style>
+<Layer name="india-admin-claim"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>india-admin-claim</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[planet_osm_line]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[8072084.74,3213412.64,10836501.36,4450836.71]]></Parameter>
+       <Parameter name="host"><![CDATA[localhost]]></Parameter>
+       <Parameter name="port"><![CDATA[5432]]></Parameter>
+       <Parameter name="dbname"><![CDATA[india_boundaries]]></Parameter>
+    </Datasource>
+  </Layer>
+
 <Style name="admin-low-zoom" filter-mode="first" comp-op="darken" opacity="0.4">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -22098,96 +22188,6 @@ WHERE "addr:interpolation" IS NOT NULL) AS interpolation]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="dbname"><![CDATA[gis]]></Parameter>
-    </Datasource>
-  </Layer>
-
-<Style name="india-claimed-boundaries" filter-mode="first" comp-op="darken" opacity="0.4">
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="5" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="5" stroke-dasharray="4, 2" clip="false" stroke="#ac46ac" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2" stroke="#ac46ac" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-    <LineSymbolizer stroke="#ffffff" stroke-width="0.6" />
-    <LineSymbolizer stroke="#ac46ac" stroke-width="0.6" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([admin_level] = '3')</Filter>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="6" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="6" stroke="#ac46ac" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>750000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="2" stroke="#ac46ac" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-    <LineSymbolizer stroke="#ffffff" stroke-width="0.6" />
-    <LineSymbolizer stroke="#ac46ac" stroke-width="0.6" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([admin_level] = '2')</Filter>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>400000</MaxScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="3" stroke="#ac46ac" stroke-dasharray="4, 3" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>6500000</MaxScaleDenominator>
-    <MinScaleDenominator>400000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#ffffff" />
-    <LineSymbolizer stroke-width="1" stroke="#ac46ac" stroke-dasharray="4, 3" clip="false" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000000</MaxScaleDenominator>
-    <MinScaleDenominator>6500000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-    <LineSymbolizer stroke="#ffffff" stroke-width="0.6" />
-    <LineSymbolizer stroke="#ac46ac" stroke-width="0.6" stroke-dasharray="4, 3" clip="false" />
-  </Rule>
-  <Rule>
-    <MinScaleDenominator>50000000</MinScaleDenominator>
-    <Filter>([admin_level] = '4')</Filter>
-  </Rule>
-</Style>
-<Layer name="india-claimed-boundaries"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>india-claimed-boundaries</StyleName>
-    <Datasource>
-       <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="table"><![CDATA[planet_osm_line]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
-       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[8072084.74,3213412.64,10836501.36,4450836.71]]></Parameter>
-       <Parameter name="host"><![CDATA[localhost]]></Parameter>
-       <Parameter name="port"><![CDATA[5432]]></Parameter>
-       <Parameter name="dbname"><![CDATA[india_boundaries]]></Parameter>
     </Datasource>
   </Layer>
 
