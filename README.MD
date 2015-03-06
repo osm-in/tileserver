@@ -29,8 +29,9 @@ Styling is based on a fork of [openstreetmap-carto](https://github.com/planemad/
 
 Once setup, you can load the project into [Tilemill](https://www.mapbox.com/tilemill/) to test the style and export the mapnik.xml stylesheet for use with the mapnik renderer.
 
-#### Using the precompiled xml stylesheet
-A pre compiled mapnik stylesheet can be found at  ```/tileserver/openstreetmap-carto.xml```. Using the stylesheet will require correcting the paths that reference the downloaded .shp shapefiles.
+- **Note:** A pre compiled mapnik stylesheet can be found at  ```/tileserver/openstreetmap-carto.xml```. Using this stylesheet will require correcting the paths that reference the downloaded .shp shapefiles.
+
+- To setup multiple style layers, follow the instructions here http://stackoverflow.com/questions/24492029/switch-styles-on-an-openstreetmap-server-using-mapnik-postgis-etc
 
 ## Contact
 * [osm:talk-in list](https://lists.openstreetmap.org/listinfo/talk-in)
